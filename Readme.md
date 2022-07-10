@@ -8,15 +8,13 @@ Simple config currently doesn't support arrays as there is no obvious strategy f
 
 import { Config } from 'simple-config'
 
-// ...
 
 // ~/'.myconfig.json' doesn't exist.
-
+// if no configFilePath is provided, we assume the users home directory. 
 const simpleConfig = new Config({  myConfigValue: true, }, '.myconfig.json');
 const myConfig = await simpleConfig.getConfig();
 
 // myConfig == { myConfigValue: true }
-
 // ~/'.myconfig.json' has been created and now contains { "myConfigValue": true }
 
 ```
