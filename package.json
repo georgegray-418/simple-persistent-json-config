@@ -1,5 +1,5 @@
 {
-  "name" : "simple-config",
+  "name" : "simple-json-config",
   "version" : "1.0.0",
   "description" : "Simple, persisted json configuration",
   "author": "George Gray",

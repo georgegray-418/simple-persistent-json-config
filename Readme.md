@@ -1,12 +1,12 @@
-# Simple Config 
+# Simple Persistent Json Config  
 
-Simple Config is a utility to allow you to rapidly add persisted, user or system specific configurations to your project, simple config manages merging your provided default values with persisted and potentially modified values saved by a user on disk, simple config will also handle initializing on disk configuration files to the defaults provide if they are missing.
+Simple Persistent Json Config is a utility to allow you to rapidly add persisted, user or system specific configurations to your project, simple config manages merging your provided default values with persisted and potentially modified values saved by a user on disk, simple config will also handle initializing on disk configuration files to the defaults provide if they are missing.
 
 Simple config currently doesn't support arrays as there is no obvious strategy for merging them, while lots of potentially sensible approaches exist, all of them would add unnecessary configuration complexity to a very simple tool. 
 
 ```typescript
 
-import { Config } from 'simple-config'
+import { Config } from 'simple-persistent-json-config'
 
 
 // ~/'.myconfig.json' doesn't exist.
@@ -39,7 +39,7 @@ Running the following
 
 ```typescript
 
-import { Config } from 'simple-config'
+import { Config } from 'simple-persistent-json-config'
 
 // ...
 const defaultConfig = {
