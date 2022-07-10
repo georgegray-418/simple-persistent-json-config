@@ -1,0 +1,16 @@
+{
+  "name" : "simple-config",
+  "version" : "1.0.0",
+  "description" : "Simple, persisted json configuration",
+  "author": "George Gray",
+  "license": "MIT",
+  "main": "dist/config.js",
+  "types": "dist/config.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.3",
+    "typescript": "^4.7.4"
+  }
+}
