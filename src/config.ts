@@ -127,5 +127,3 @@ export default class Config<ConfigData> {
     return this.setValueFromPath(thing[next!], path, setThing);
   }
 }
-
-console.log(new Config({eh:123}, '.test').getConfig());
