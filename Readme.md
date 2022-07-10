@@ -11,8 +11,7 @@ import { Config } from 'simple-persistent-json-config'
 
 // ~/'.myconfig.json' doesn't exist.
 // if no configFilePath is provided, we assume the users home directory. 
-const simpleConfig = new Config({  myConfigValue: true, }, '.myconfig.json');
-const myConfig = await simpleConfig.getConfig();
+const myConfig = new Config({  myConfigValue: true, }, '.myconfig.json').getConfig();;
 
 // myConfig == { myConfigValue: true }
 // ~/'.myconfig.json' has been created and now contains { "myConfigValue": true }
@@ -48,19 +47,17 @@ const defaultConfig = {
     loggingConfiguration : {
         fileLogger : {
             level : 0,
-            pattern : "${level}-${date}"
+            pattern : "${level}-${date}",
             type: "rotating"
         },
         newRemoteLogger : {
             level : 20,
-            pattern : "${level}-${date}"
+            pattern : "${level}-${date}",
             type: "rotating"
         },
     }
 }
-const simpleConfig = new Config(defaultConfig, '.config.json', '`/opt/mysoftware');
-
-const myConfig = await simpleConfig.getConfig();
+const myConfig = new Config(defaultConfig, 'config.json', '/opt/mysoftware').getConfig();
 
 ```
 

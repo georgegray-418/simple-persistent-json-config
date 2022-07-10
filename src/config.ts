@@ -30,7 +30,7 @@ export default class Config<ConfigData> {
    * Synchronies the default values with the on disk configuration file,
    * If the on disk configuration file is missing default members they will be inserted and persisted.
    */
-  public async init(): Promise<void> {
+  public init(): void {
     if (this.initialized) return;
     // Ensure config file exists
     if (!fs.existsSync(this.configPath)) {
@@ -54,9 +54,9 @@ export default class Config<ConfigData> {
    * gets the config object.
    * @returns 
    */
-  public async getConfig(): Promise<ConfigData> {
-    await this.init();
-    return structuredClone(this.config);
+  public getConfig(): ConfigData {
+    this.init();
+    return JSON.parse(JSON.stringify(this.config));
   }
 
   /**
@@ -124,3 +124,4 @@ export default class Config<ConfigData> {
   }
 }
 
+console.log(new Config({eh:123}, '.test').getConfig());
