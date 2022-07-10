@@ -1,6 +1,6 @@
 {
   "name" : "simple-persistent-json-config",
-  "version" : "2.0.0",
+  "version" : "2.0.1",
   "description" : "Simple, persisted json configuration",
   "author": "George Gray",
   "homepage" : "https://github.com/georgegray-418/simple-persistent-json-config#readme",

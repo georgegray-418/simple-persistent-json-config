@@ -22,6 +22,8 @@ export default class Config<ConfigData> {
    * @param configFilePath The path of the configuration file on disk, this defaults the the users home directory if not provided.
    */
   constructor(defaultConfig: ConfigData, configFileName: string, configFilePath: string = os.homedir()) {
+    // we're using Object.assign(Object.create(null) to set the config object as it is susceptible to a prototype pollution
+    // attack in setValueFromPath.
     this.config = Object.assign(Object.create(null), defaultConfig);
     this.configPath = path.join(configFilePath, configFileName);
   }
@@ -40,6 +42,8 @@ export default class Config<ConfigData> {
     // Read properties
     const confFileData = fs.readFileSync(this.configPath);
     let props = JSON.parse(confFileData.toString() || '{}');
+    // we're using Object.assign(Object.create(null) to set the props object as it is susceptible to a prototype pollution
+    // attack in setValueFromPath.
     props = Object.assign(Object.create(null), props);
     // Load values into this.configData or save defaults into
     // the properties file if they are missing.
@@ -119,7 +123,7 @@ export default class Config<ConfigData> {
       thing[next!] = setThing;
       return;
     }
-    if (!thing[next!]) thing[next!] = {};
+    if (!thing[next!]) thing[next!] = Object.create(null);
     return this.setValueFromPath(thing[next!], path, setThing);
   }
 }
