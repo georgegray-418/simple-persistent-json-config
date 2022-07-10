@@ -7,20 +7,6 @@ import fs from 'fs';
  * Provide the default configuration and a filename / path and a configuration file will
  * be saved or updated with the defaults provided, if values are already present, those values are
  * loaded into this instance.
- * 
- * in the following instance:
- * 
- * if the file `~/.myconfig.json'` did not exist
- * ```
- * const config = new Config({  myConfigValue: true, }, '.myconfig.json');
- * await config.init();
- * ```
- * 
- * would create the file `~/.myconfig.json'` and insert the value `{ myConfigValue: true }`
- * into it, calls to `await config.getConfig();` would return `{ myConfigValue: true }`
- * 
- * In a less trivial example, consider:
- * 
  */
 export default class Config<ConfigData> {
   private initialized = false;
