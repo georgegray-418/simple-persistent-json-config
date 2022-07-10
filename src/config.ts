@@ -13,6 +13,14 @@ export default class Config<ConfigData> {
   private readonly configPath: string;
   private config: ConfigData
 
+  /**
+   * 
+   * @param defaultConfig The default configuration object, these values will be used unless the on disk config file has overwritten them 
+   * Note: As the default configs are persisted on every run, old defaults will present as user overrides if this config blob is changed, 
+   * if you need ot update configs, consider incrementing the configFileName or using a more complex tool. 
+   * @param configFileName The name of the file on disk to store the configuration.
+   * @param configFilePath The path of the configuration file on disk, this defaults the the users home directory if not provided.
+   */
   constructor(defaultConfig: ConfigData, configFileName: string, configFilePath: string = os.homedir()) {
     this.config = defaultConfig;
     this.configPath = path.join(configFilePath, configFileName);
