@@ -10,7 +10,7 @@ import { Config } from 'simple-config'
 
 // ...
 
-// ~/'.myconfig.json' does not exist.
+// ~/'.myconfig.json' doesn't exist.
 
 const simpleConfig = new Config({  myConfigValue: true, }, '.myconfig.json');
 const myConfig = await simpleConfig.getConfig();
@@ -44,8 +44,7 @@ Running the following
 import { Config } from 'simple-config'
 
 // ...
-
-const simpleConfig = new Config({
+const defaultConfig = {
     port : 1234,
     globalLogLevel : 10,
     loggingConfiguration : {
@@ -60,7 +59,8 @@ const simpleConfig = new Config({
             type: "rotating"
         },
     }
-}, '.config.json', '`/opt/mysoftware');
+}
+const simpleConfig = new Config(defaultConfig, '.config.json', '`/opt/mysoftware');
 
 const myConfig = await simpleConfig.getConfig();
 
