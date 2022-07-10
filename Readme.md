@@ -6,7 +6,7 @@ Simple config currently doesn't support arrays as there is no obvious strategy f
 
 ```typescript
 
-import { Config } from 'simple-persistent-json-config'
+import Config from 'simple-persistent-json-config'
 
 
 // ~/'.myconfig.json' doesn't exist.
@@ -38,7 +38,7 @@ Running the following
 
 ```typescript
 
-import { Config } from 'simple-persistent-json-config'
+import Config from 'simple-persistent-json-config'
 
 // ...
 const defaultConfig = {
